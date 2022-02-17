@@ -3,19 +3,19 @@ import Pages.LoginPage;
 import Pages.MailPage;
 import Pages.MainPage;
 import Utils.PropertyReader;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
-public class testTask {
+public class TestTask {
     String propertyFilePath = "src/test/resources/conf.properties";
     String url = PropertyReader.getProperty(propertyFilePath, "url");
     String login = PropertyReader.getProperty(propertyFilePath, "login");
     String password = PropertyReader.getProperty(propertyFilePath, "password");
 
-    @BeforeMethod
+    @Before
     public void start(){
         WebDriver driver = WebDriverFactory.getDriver();
         driver.manage().window().maximize();
@@ -36,7 +36,7 @@ public class testTask {
         Assert.assertEquals(newMailsCount, mailsCount+1);
     }
 
-    @AfterTest
+    @After
     public void end(){
         WebDriverFactory.getDriver().quit();
     }
