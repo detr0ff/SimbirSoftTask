@@ -20,22 +20,11 @@ public class LoginPage {
         PageFactory.initElements(WebDriverFactory.getDriver(), this);
     }
 
-    public void enterLogin(String login){
+    public MailPage login(String login, String passwd){
         loginInput.sendKeys(login);
-    }
-
-    public void enterPassword(String passwd){
-       passwEnter.sendKeys(passwd);
-    }
-
-    public void submitButtonClick(){
         submitButton.click();
-    }
-
-    public void login(String login, String passwd){
-        enterLogin(login);
-        submitButtonClick();
-        enterPassword(passwd);
-        submitButtonClick();
+        passwEnter.sendKeys(passwd);
+        submitButton.click();
+        return new MailPage();
     }
 }

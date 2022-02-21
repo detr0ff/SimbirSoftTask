@@ -14,7 +14,8 @@ public class MainPage {
         PageFactory.initElements(WebDriverFactory.getDriver(), this);
     }
 
-    public void goLogin(){
+    public LoginPage goLogin(){
         loginButton.click();
+        return new LoginPage();
     }
 }

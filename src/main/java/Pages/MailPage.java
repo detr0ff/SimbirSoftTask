@@ -34,14 +34,16 @@ public class MailPage {
         return mailTable.findElements(By.xpath(String.format("//span[@title = '%s']", title))).size();
     }
 
-    public void writeNewMail(String recipient, String theme, String text){
+    public MailPage writeNewMail(String recipient, String theme, String text){
         newMailButton.click();
         NewMailForm newMailForm = new NewMailForm();
         newMailForm.writeMail(recipient, theme, text);
+        return this;
     }
 
-    public void refreshButtonClick(){
+    public MailPage refreshButtonClick(){
         refreshButton.click();
         wait.until(ExpectedConditions.attributeContains(loadBar, "style", "width: 0%"));
+        return this;
     }
 }
