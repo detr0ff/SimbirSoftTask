@@ -3,7 +3,10 @@ package com.example.task;
 import com.example.task.Models.ResponseModelAllUsers;
 import com.example.task.Models.ResponseModelUser;
 import com.example.task.Models.User;
+import com.google.gson.JsonElement;
 import io.restassured.specification.RequestSpecification;
+
+import java.lang.constant.Constable;
 import java.util.List;
 
 public class Steps {
@@ -15,6 +18,7 @@ public class Steps {
                 .as(ResponseModelAllUsers.class)
                 .getData();
     }
+
     public static User getUserBuId(RequestSpecification requestSpecification, int id){
         return requestSpecification.get(String.valueOf(id))
                 .then()
@@ -28,7 +32,7 @@ public class Steps {
         boolean check = false;
         int i = 1;
         User user = null;
-        while (!check || i <100){
+        while (!check || i>100){
             user = getUserBuId(requestSpecification, i);
             if (user.getFirst_name().equals(name) && user.getLast_name().equals(last_name)){
                 check = true;
