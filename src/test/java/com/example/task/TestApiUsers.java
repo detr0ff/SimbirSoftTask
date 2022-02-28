@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TestApiUsers {
 
     @Test
-    public void getAllUsers(){
+    public void testGetAllUsers(){
         boolean check = Steps.getAllUsers(BaseTest.requestSpecification)
                 .stream()
                 .filter(user -> user.getFirst_name().equals(Config.getProperty("testFirstName1")))
@@ -17,7 +17,7 @@ public class TestApiUsers {
     }
 
     @Test
-    public void getUserByName(){
+    public void testGetUserByName(){
         String email = Steps.getUserByName(BaseTest.requestSpecification, Config.getProperty("testFirstName2"), Config.getProperty("testLastName2"))
                 .getEmail();
         Assertions.assertEquals(email, Config.getProperty("testEmail2"), "Почты не совпадют");
