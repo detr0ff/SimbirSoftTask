@@ -1,7 +1,6 @@
 package com.example.task;
 
 import com.example.task.Config.Config;
-import com.example.task.Utils.PropertyReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
