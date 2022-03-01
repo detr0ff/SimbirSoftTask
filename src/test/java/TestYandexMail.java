@@ -14,7 +14,7 @@ public class TestYandexMail {
     private static final String mailTheme = PropertyReader.getProperty(propertyFilePath, "mailTheme");
 
     @Before
-    public static void start(){
+    public void start(){
         WebDriver driver = WebDriverFactory.getDriver();
         driver.manage().window().maximize();
         driver.get(url);
@@ -34,7 +34,7 @@ public class TestYandexMail {
     }
 
     @After
-    public static void end(){
+    public void end(){
         WebDriverFactory.getDriver().quit();
     }
 }
