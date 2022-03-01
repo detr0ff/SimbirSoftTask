@@ -13,7 +13,7 @@ public class TestYandexMail {
     private static final String newLetterEmail = PropertyReader.getProperty(propertyFilePath, "newLetterEmail");
     private static final String mailTheme = PropertyReader.getProperty(propertyFilePath, "mailTheme");
 
-    @BeforeClass
+    @Before
     public static void start(){
         WebDriver driver = WebDriverFactory.getDriver();
         driver.manage().window().maximize();
@@ -33,7 +33,7 @@ public class TestYandexMail {
         Assert.assertEquals(newMailsCount, mailsCount+1);
     }
 
-    @AfterClass
+    @After
     public static void end(){
         WebDriverFactory.getDriver().quit();
     }
